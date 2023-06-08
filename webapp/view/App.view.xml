@@ -1,0 +1,12 @@
+<!-- 
+    Ao invés de usar JS nativo para mostrar diálogos e eventos em geral o SAPUI5 prefere que seja utilizado um simples controlador. Controladores são usados para definir a aparência e comportamento de certas partes da tela. A pasta raiz das views xml é essa, sendo referenciado o que tem a maioria dos assets necessários.
+-->
+
+<mvc:View
+   controllerName="sap.ui.demo.walkthrough.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Button
+      text="Say Hello"
+      press=".onShowHello"/>
+</mvc:View>

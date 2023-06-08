@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Walkthrough</title>
+	<script 
+        id="sap-ui-bootstrap"
+        src="https://sdk.openui5.org/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_belize"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-async="true"
+        data-sap-ui-onInit="module:sap/ui/demo/walkthrough/index"
+        data-sap-ui-resourceroots='{
+            "sap.ui.demo.walkthrough": "./"
+    }'>
+    /*
+        src => indica o caminho do OpenUI5 ao browser, o inicializando. Nesse caso é um CDN.
+        data-sap-ui-async => configura a inicialização para ser assíncrona: os recursos poderão ser carregados simultânemanete no background.
+        data-sap-ui-onInit => uma espécie de máscara que demonstra o path padrão, que será substituído pelo "./" em resourceroots.
+    */
+	</script>
+</head>
+<body class="sapUiBody" id="content"></body>
+<!-- UI5 precisa inicializar e carregar recursos e isso é chamado bootstraping -->
+</html>

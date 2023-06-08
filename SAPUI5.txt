@@ -1,0 +1,10 @@
+SAPUI5 é um conjunto de bibliotecas javascript que desenvolvedores podem usar para criar aplicativos responsivos que rodam em browsers. OpenUI5 é a versão open source do SAPUI5. SAP Fiori é um PRODUTO da SAP. SAP Fiori não é o aplicativo UI5 que você criou do zero, SAP Fiori é um conjunto de aplicativos criados pela SAP que utiliza SAPUI5 + Gateway.
+
+Inicialmente é necessário instalar a CLI através do npm, para que seja usado o node.js e os comandos do ui5.
+
+package.json =>  mantém todos os metadados relacionados ao projeto, informa os dados ao node.js e identifica o projeto e suas dependências.
+ui5.yaml => é o arquivo de configuração do ui5 tooling.
+manifest.json => é necessário para configurar o cli e o servidor node.js
+
+
+
