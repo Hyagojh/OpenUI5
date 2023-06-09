@@ -1,22 +1,37 @@
 /*
-    Dentro da função sap.ui.define, é definido um módulo com uma única dependência: "sap/ui/core/mvc/Controller". Essa dependência se refere ao módulo "sap.ui.core.mvc.Controller" do SAPUI5, que é responsável por definir controladores para as visualizações do SAPUI5.
+    Dentro da função sap.ui.define, são definidos três módulos como dependências: "sap/ui/core/mvc/Controller", "sap/m/MessageToast" e "sap/ui/model/json/JSONModel". Esses módulos são do SAPUI5 e são necessários para a implementação do código.
 
-    Dentro da função de retorno, é definida uma nova classe de controlador, utilizando o método Controller.extend. A classe de controlador é nomeada como "sap.ui.demo.walkthrough.App", indicando o namespace e o nome do controlador.
+    Dentro da função de retorno, é definida uma nova classe de controlador, utilizando o método Controller.extend. A classe de controlador é nomeada como "sap.ui.demo.walkthrough.controller.App", indicando o namespace e o nome do controlador.
 
-    Dentro da classe de controlador, é definido um método chamado onShowHello, que será invocado quando um evento "onShowHello" for disparado. Dentro desse método, é exibido um alerta com a mensagem "Hello there!".
+    Dentro da classe de controlador, são definidos dois métodos: onInit e onShowHello.
 
-    Por fim, a classe de controlador é retornada como resultado da função sap.ui.define.
+    O método onInit é chamado automaticamente quando o controlador é inicializado. Dentro dele, é criado um objeto oData que contém uma propriedade recipient com o valor { name: "World" }. Em seguida, é criado um modelo JSON oModel usando o objeto oData. Esse modelo é definido na visão (View) associada a esse controlador usando o método setModel, tornando-o disponível para uso na visão.
 
-    Em resumo, essa função define um controlador no SAPUI5 chamado "sap.ui.demo.walkthrough.App" que possui um método onShowHello para exibir um alerta com a mensagem "Hello there!" quando o evento "onShowHello" for disparado.
+    O método onShowHello é chamado quando um evento "onShowHello" é disparado. Dentro desse método, é exibida uma mensagem toast com o texto "Hello World" usando o MessageToast.show.
+
+    Resumindo, esse código define um controlador no SAPUI5 chamado "sap.ui.demo.walkthrough.controller.App". No método onInit, um modelo JSON é criado e definido na visão associada ao controlador. No método onShowHello, uma mensagem toast é exibida com o texto "Hello World" quando o evento "onShowHello" é disparado.
 */
 
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
- ], function (Controller) {
+    "sap/ui/core/mvc/Controller",
+    "sap/m/MessageToast",
+    "sap/ui/model/json/JSONModel"
+ ], function (Controller, MessageToast, JSONModel) {
     "use strict";
-    return Controller.extend("sap.ui.demo.walkthrough.App", {
-        onShowHello: function(){
-            alert("Hello there!")
-        }
+    return Controller.extend("sap.ui.demo.walkthrough.controller.App", {
+       onInit : function () {
+          // set data model on view
+          var oData = {
+             recipient : {
+                name : "World"
+             }
+          };
+          var oModel = new JSONModel(oData);
+          this.getView().setModel(oModel);
+       },
+       onShowHello : function () {
+          MessageToast.show("Hello World");
+       }
     });
  });
+ 
